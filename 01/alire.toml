@@ -1,0 +1,12 @@
+name = "day01"
+description = "Solution, AoC24 01"
+version = "0.1.0-dev"
+
+authors = ["HM"]
+maintainers = ["HM <example@example.com>"]
+maintainers-logins = ["github-username"]
+licenses = "MIT OR Apache-2.0 WITH LLVM-exception"
+website = ""
+tags = []
+
+executables = ["day01"]
