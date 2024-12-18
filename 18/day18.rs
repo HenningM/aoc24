@@ -156,16 +156,21 @@ fn part_one(coords: Vec<Point>) {
 
 fn part_two(coords: Vec<Point>) {
     let mut path;
-    for i in 1..coords.len() {
+    let mut low = if coords.len() > 30 { 1024 } else { 1 };
+    let mut high = coords.len() - 1;
+    while high - low > 1 {
+        let i = (low + high) / 2;
         let walls = coords[..i].to_vec();
         let grid = Grid::new(walls);
         path = astar_path(grid.clone(), min_dist_to(grid.end_point), dist_between);
         if path.len() == 0 {
-            let (x, y) = coords.iter().nth(i-1).unwrap();
-            println!("{},{}", x, y);
-            return;
+            high = i;
+        } else {
+            low = i;
         }
     }
+    let (x, y) = coords.iter().nth(high-1).unwrap();
+    println!("{},{}", x, y);
 }
 
 fn main() {
