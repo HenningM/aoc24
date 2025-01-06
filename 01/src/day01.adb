@@ -1,4 +1,5 @@
 with Ada.Text_IO; use Ada.Text_IO;
+with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
 with Ada.Strings;       use Ada.Strings;
 with Ada.Strings.Fixed; use Ada.Strings.Fixed;
 with Ada.Strings.Maps;  use Ada.Strings.Maps;
@@ -50,7 +51,8 @@ begin
       Last := Second_List (I);
       Sum := Sum + abs (First - Last);
    end loop;
-   Put_Line (Sum'Image);
+   Put (Sum, 0);
+   New_Line;
 
    -- Part 2
    for I in 0 .. First_List.Last_Index loop
@@ -64,5 +66,6 @@ begin
       end loop;
       Similarity := Similarity + First * Last;
    end loop;
-   Put_Line (Similarity'Image);
+   Put (Similarity, 0);
+   New_Line;
 end Day01;
