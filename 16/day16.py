@@ -45,7 +45,7 @@ def dijkstra(start_node, end_node, map_size, d, dirIdx = 1):
                 dist[(node, di)] = score
                 parent_map[(node, di)] = [(cur, dir)]
                 heapq.heappush(open_set, (score, node, di))
-            elif score < 90000000 and score == dist[(node, di)]:
+            elif score == dist[(node, di)]:
                 heapq.heappush(open_set, (score, node, di))
                 parent_map[(node, di)].append((cur, dir))
     to_expand = deque()
